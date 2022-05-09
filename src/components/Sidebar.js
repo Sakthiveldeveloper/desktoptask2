@@ -2,8 +2,7 @@ import React from 'react';
 import { slide as Menu } from 'react-burger-menu';
 import {Link} from 'react-router-dom'
 import './Sidebar.css';
-
-export default props => {
+const Sidebar =() => {
   return (
     <Menu>
       <Link to="/home">
@@ -29,3 +28,4 @@ export default props => {
     </Menu>
   );
 };
+export default Sidebar

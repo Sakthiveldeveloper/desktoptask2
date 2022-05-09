@@ -15,13 +15,8 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
-import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import { Drawer } from '@mui/material';
+
+// import { Drawer } from '@mui/material';
 // import MailIcon from '@mui/icons-material/Mail';
 import Sidebar from './Sidebar'
 
@@ -163,53 +158,6 @@ export default function PrimarySearchAppBar() {
     </Menu>
   );
 
-
-  const [state, setState] = React.useState({
-    top: false,
-    left: false,
-    bottom: false,
-    right: false,
-  });
-
-  const toggleDrawer = (anchor, open) => (event) => {
-    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-      return;
-    }
-
-    setState({ ...state, [anchor]: open });
-  };
-
-  const list = (anchor) => (
-    <Box
-      sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
-      role="presentation"
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
-    >
-      <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
-    </Box>
-  );
-
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -224,16 +172,6 @@ export default function PrimarySearchAppBar() {
             <Sidebar >
             <MenuIcon />
             </Sidebar>
-            {/* <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button> */}
-          {/* <Drawer
-            anchor={anchor}
-            open={state[anchor]}
-            onClose={toggleDrawer()}
-            onClick={toggleDrawer(true)}
-          >
-            {list()}
-            <MenuIcon />
-          </Drawer> */}
           </IconButton>
           <Typography
             variant="h6"
